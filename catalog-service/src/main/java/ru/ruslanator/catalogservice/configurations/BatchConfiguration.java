@@ -40,7 +40,7 @@ public class BatchConfiguration {
         reader.setResource(new ClassPathResource("sample-data.csv"));
         reader.setLineMapper(new DefaultLineMapper<Product>() {{
             setLineTokenizer(new DelimitedLineTokenizer() {{
-                setNames("Id", "sku", "nameTitle", "description", "listPrice",
+                setNames("id", "sku", "nameTitle", "description", "listPrice",
                         "salePrice", "category", "categoryTree", "averageProductRating", "productUrl",
                         "productImageUrls", "brand", "totalNumberReviews", "reviews");
             }});

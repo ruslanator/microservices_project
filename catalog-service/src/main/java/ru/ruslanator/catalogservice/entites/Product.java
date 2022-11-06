@@ -19,7 +19,7 @@ public class Product {
 
     @Id
     @Column(name = "uniq_id")
-    private String Id;
+    private String id;
 
     @Column(name = "sku")
     private String sku;

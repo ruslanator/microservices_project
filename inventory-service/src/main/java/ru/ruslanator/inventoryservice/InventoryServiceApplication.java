@@ -1,18 +1,15 @@
-package ru.ruslanator.catalogservice;
+package ru.ruslanator.inventoryservice;
 
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableBatchProcessing
 @EnableEurekaClient
-public class CatalogServiceApplication {
+public class InventoryServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CatalogServiceApplication.class, args);
+        SpringApplication.run(InventoryServiceApplication.class, args);
     }
-
 
 }
