@@ -15,11 +15,15 @@ public class InventoryController {
     }
 
     @GetMapping("/{id}")
-    private String getProduct(@PathVariable String id) {
+    private Product getProduct(@PathVariable String id) {
         Product newProduct = inventoryService.getProduct(id);
         newProduct.setInStock(true);
         inventoryService.saveProduct(newProduct);
-        return "Product with ID = " + newProduct.getId()
-                + " in stock.";
+        return newProduct;
+    }
+
+    @GetMapping("/api/{id}")
+    private Product getProduct2(@PathVariable String id) {
+        return inventoryService.getProduct(id);
     }
 }

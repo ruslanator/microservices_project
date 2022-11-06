@@ -7,7 +7,7 @@ import ru.ruslanator.catalogservice.entites.Product;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository extends JpaRepository<Product, String> {
+public interface CatalogRepository extends JpaRepository<Product, String> {
 
     List<Product> findBySku(String sku);
 }

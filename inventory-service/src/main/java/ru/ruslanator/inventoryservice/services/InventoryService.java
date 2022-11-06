@@ -17,7 +17,7 @@ public class InventoryService {
     }
 
     public Product getProduct(String id) {
-        return restTemplate.getForObject("http://localhost:8081/product/{id}",
+        return restTemplate.getForObject("http://localhost:8081/catalog/{id}",
                 Product.class, id);
     }
 

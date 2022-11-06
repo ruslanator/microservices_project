@@ -2,18 +2,18 @@ package ru.ruslanator.catalogservice.services;
 
 import org.springframework.stereotype.Service;
 import ru.ruslanator.catalogservice.entites.Product;
-import ru.ruslanator.catalogservice.repositories.ProductRepository;
+import ru.ruslanator.catalogservice.repositories.CatalogRepository;
 import ru.ruslanator.catalogservice.util.ProductNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService {
+public class CatalogService {
 
-    private final ProductRepository productRepository;
+    private final CatalogRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
+    public CatalogService(CatalogRepository productRepository) {
         this.productRepository = productRepository;
     }
 
