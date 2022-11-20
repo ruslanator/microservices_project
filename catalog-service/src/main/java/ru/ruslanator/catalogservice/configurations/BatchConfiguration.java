@@ -1,5 +1,6 @@
 package ru.ruslanator.catalogservice.configurations;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -12,26 +13,20 @@ import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import ru.ruslanator.catalogservice.entites.Product;
+import ru.ruslanator.catalogservice.models.entites.Product;
 
 import javax.sql.DataSource;
 
 @Configuration
 @Slf4j
+@AllArgsConstructor
 public class BatchConfiguration {
 
-    @Autowired
     private JobBuilderFactory jobBuilderFactory;
-
-    @Autowired
     private StepBuilderFactory stepBuilderFactory;
-
-    @Autowired
     private DataSource batchDataSource;
 
     @Bean

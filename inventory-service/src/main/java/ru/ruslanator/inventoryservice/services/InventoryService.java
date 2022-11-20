@@ -1,28 +1,33 @@
 package ru.ruslanator.inventoryservice.services;
 
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestTemplate;
-import ru.ruslanator.inventoryservice.entities.Product;
+import ru.ruslanator.inventoryservice.clients.CatalogServiceFeignClient;
+import ru.ruslanator.inventoryservice.models.dtos.ProductDTO;
+import ru.ruslanator.inventoryservice.models.entities.Product;
 import ru.ruslanator.inventoryservice.repositories.InventoryRepository;
 
 @Service
+@RequiredArgsConstructor
 public class InventoryService {
 
-    private final RestTemplate restTemplate = new RestTemplate();
     private final InventoryRepository inventoryRepo;
-
-    public InventoryService(InventoryRepository inventoryRepo) {
-        this.inventoryRepo = inventoryRepo;
-    }
+    private final CatalogServiceFeignClient catalogServiceFeignClient;
 
     public Product getProduct(String id) {
-        return restTemplate.getForObject("http://localhost:8081/catalog/{id}",
-                Product.class, id);
+        return convertToProduct(catalogServiceFeignClient.getProduct(id));
     }
 
     @Transactional
     public void saveProduct(Product product) {
+        product.setInStock(true);
         inventoryRepo.save(product);
+    }
+
+    private Product convertToProduct(ProductDTO productDTO) {
+        ModelMapper mapper = new ModelMapper();
+        return mapper.map(productDTO, Product.class);
     }
 }

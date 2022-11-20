@@ -1,9 +1,10 @@
-package ru.ruslanator.catalogservice.dtos;
-
+package ru.ruslanator.productservice.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class ProductDTO {
 
     private String id;
@@ -20,5 +21,4 @@ public class ProductDTO {
     private String brand;
     private String totalNumberReviews;
     private String reviews;
-
 }

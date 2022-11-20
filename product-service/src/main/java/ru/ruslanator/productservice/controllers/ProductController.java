@@ -8,7 +8,7 @@ import ru.ruslanator.productservice.model.Product;
 import ru.ruslanator.productservice.services.ProductService;
 
 @RestController
-@RequestMapping("/catalog")
+@RequestMapping("/product")
 public class ProductController {
 
     private final ProductService productService;

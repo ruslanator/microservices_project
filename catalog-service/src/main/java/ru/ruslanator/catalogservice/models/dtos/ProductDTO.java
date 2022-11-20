@@ -1,11 +1,9 @@
-package ru.ruslanator.productservice.model;
+package ru.ruslanator.catalogservice.models.dtos;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-public class Product {
+public class ProductDTO {
 
     private String id;
     private String sku;

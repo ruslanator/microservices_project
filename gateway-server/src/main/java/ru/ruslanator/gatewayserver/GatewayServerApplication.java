@@ -1,17 +1,15 @@
-package ru.ruslanator.inventoryservice;
+package ru.ruslanator.gatewayserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
-public class InventoryServiceApplication {
+public class GatewayServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(InventoryServiceApplication.class, args);
+        SpringApplication.run(GatewayServerApplication.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-package ru.ruslanator.catalogservice.util;
+package ru.ruslanator.catalogservice.models.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,3 +11,4 @@ public class ProductErrorResponse {
     private String message;
     private long timestamp;
 }
+

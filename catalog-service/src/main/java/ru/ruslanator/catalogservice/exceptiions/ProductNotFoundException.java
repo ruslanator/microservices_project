@@ -1,4 +1,4 @@
-package ru.ruslanator.catalogservice.util;
+package ru.ruslanator.catalogservice.exceptiions;
 
 public class ProductNotFoundException extends RuntimeException {
 }

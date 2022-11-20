@@ -1,21 +1,19 @@
 package ru.ruslanator.catalogservice.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.ruslanator.catalogservice.entites.Product;
+import ru.ruslanator.catalogservice.exceptiions.ProductNotFoundException;
+import ru.ruslanator.catalogservice.models.entites.Product;
 import ru.ruslanator.catalogservice.repositories.CatalogRepository;
-import ru.ruslanator.catalogservice.util.ProductNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CatalogService {
 
     private final CatalogRepository productRepository;
-
-    public CatalogService(CatalogRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     public Product findOne(String id) {
         Optional<Product> foundPerson = productRepository.findById(id);

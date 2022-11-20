@@ -1,4 +1,4 @@
-package ru.ruslanator.inventoryservice.entities;
+package ru.ruslanator.inventoryservice.models.entities;
 
 import lombok.Data;
 

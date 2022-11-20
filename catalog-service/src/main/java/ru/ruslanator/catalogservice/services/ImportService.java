@@ -1,27 +1,21 @@
 package ru.ruslanator.catalogservice.services;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
-import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.stereotype.Service;
 
-import javax.batch.operations.JobRestartException;
-
 @Service
-@Slf4j
+@Log4j2
 @NoArgsConstructor
+@AllArgsConstructor
 public class ImportService {
 
     private JobLauncher jobLauncher;
     private Job job;
-
-    public ImportService(JobLauncher jobLauncher, Job job) {
-        this.jobLauncher = jobLauncher;
-        this.job = job;
-    }
 
     public void start() throws Exception{
         try {
@@ -29,13 +23,10 @@ public class ImportService {
             BatchStatus status;
             do {
                 status = jobExecution.getStatus();
-                log.info("status = " + status);
-                Thread.sleep(1000);
+                log.debug("status = " + status);
             } while (status != BatchStatus.COMPLETED);
-        } catch (JobExecutionAlreadyRunningException | JobRestartException
-                | JobInstanceAlreadyCompleteException | JobParametersInvalidException
-                | InterruptedException e) {
-            e.printStackTrace();
+        } catch (JobExecutionAlreadyRunningException e) {
+            log.error(e);
         }
     }
 }

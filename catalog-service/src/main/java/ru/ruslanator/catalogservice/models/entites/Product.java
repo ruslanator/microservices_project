@@ -1,4 +1,4 @@
-package ru.ruslanator.catalogservice.entites;
+package ru.ruslanator.catalogservice.models.entites;
 
 import lombok.*;
 
